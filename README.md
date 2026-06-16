@@ -1,22 +1,7 @@
-Key Components Used
-Amazon Web Services VPC
-Public and Private Subnets
-Internet Gateway
-Route Tables
-Security Groups
-Application Load Balancer (ALB)
-EC2 Instances
-Auto Scaling Group
-Amazon RDS
-Route 53
-CloudWatch
-Advantages
-High Availability
-Scalability
-Security
-Fault Tolerance
-Better Performance
-Easy Management
-Conclusion
+This project demonstrates the implementation of a 3-Tier Architecture on AWS, designed to provide a secure, scalable, and highly available environment for hosting web applications. The architecture is divided into three layers: the Presentation Tier (Web Layer), the Application Tier, and the Database Tier. The Web Layer consists of Route 53, an Application Load Balancer (ALB), and EC2 web servers that receive and process user requests. The Application Layer contains EC2 application servers that handle business logic and communicate with the database. The Database Layer uses Amazon RDS MySQL to securely store and manage application data in private subnets.
 
-AWS 3-Tier Architecture separates the application into Web, Application, and Database layers. This design improves security, scalability, availability, and performance by distributing workloads across multiple AWS services such as VPC, ALB, EC2, Auto Scaling, and RDS.
+The project was implemented by creating a Virtual Private Cloud (VPC) with public and private subnets, configuring Internet Gateway and Route Tables, launching EC2 instances, and setting up Security Groups for controlled access. An Application Load Balancer was created to distribute incoming traffic across multiple EC2 instances, ensuring high availability. An Amazon Machine Image (AMI) was used to configure an Auto Scaling Group, allowing automatic provisioning of additional instances based on demand. Amazon RDS MySQL was deployed as the backend database, and connectivity between the application servers and the database was established using the RDS endpoint.
+
+The application workflow begins when a user accesses the application through a domain name configured in Route 53. Traffic is routed to the Application Load Balancer, which distributes requests among available EC2 web servers. The web servers communicate with the application servers, which process the requests and interact with the Amazon RDS database. The database returns the required information, and the response is sent back to the user through the web layer.
+
+This architecture offers several benefits, including improved security through network isolation, high availability using Load Balancing and Auto Scaling, fault tolerance, better performance, and simplified management. By leveraging AWS services such as VPC, EC2, ALB, Auto Scaling, Route 53, CloudWatch, and Amazon RDS, the project demonstrates a production-ready cloud infrastructure capable of handling varying workloads efficiently and reliably. The successful deployment of this 3-Tier Architecture highlights AWS best practices for building scalable and resilient applications in the cloud.
